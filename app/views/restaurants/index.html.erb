@@ -1,0 +1,12 @@
+<h1>Your Restaurants</h1>
+
+<%= @restaurants.each do |restaurant| %>
+  <h3>
+    <%= link_to restaurant.name, restaurant_path(restaurant) %>
+    <%= link_to "Delete", restaurant_path(restaurant),
+      method: :delete,
+      data: { confirm: "Are you sure?" } %>
+  <% end %>
+  </h3>
+
+  <p><%= link_to "add a restaurant", new_restaurant_path %></p>
