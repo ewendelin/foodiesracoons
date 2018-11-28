@@ -2,18 +2,19 @@ class Api::V1::ClaimsController < Api::V1::BaseController
   skip_before_action :verify_authenticity_token
 
   def create
-    # user = User.find(params[:user_id])
-    # @claim = user.claims.new({
-    #   post_id: params[:post_id]
-    # })
-    # @claim.claimed_at = Time.now
-    # @post = @claim.post
-    # @restaurant = @post.restaurant
-    # if @claim.save
-    #   render 'show', status: :created
-    # else
-    #   render_error
-    # end
+    user = User.find(params[:user_id])
+    # byebug
+    @claim = user.claims.new({
+      post_id: params[:post_id]
+    })
+    @claim.claimed_at = Time.now
+    @post = @claim.post
+    @restaurant = @post.restaurant
+    if @claim.save
+      render 'show', status: :created
+    else
+      render_error
+    end
   end
 
   def show
