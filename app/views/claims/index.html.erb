@@ -1,0 +1,11 @@
+<h1>claim</h1>
+<% @claims.each do |claim| %>
+  <div>
+    <p>Dish: <%= claim.post.name %></p>
+    <p>Total: $ <%= (claim.post.original_price * claim.post.discount).round(2) %></p>
+    <p>Client: <%= claim.user.first_name %> <%= claim.user.last_name %></p>
+    <a href="" class="btn btn-danger">Reject</a>
+    <a href="" class="btn btn-warning">No show</a>
+    <a href="" class="btn btn-primary">Confirm</a>
+  </div>
+<% end %>
