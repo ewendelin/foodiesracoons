@@ -70,7 +70,8 @@ pid = 1
 5.times do
   Claim.create(
     post_id: pid,
-    user_id: u2
+    user_id: u2,
+    claimed_at: Faker::Time.backward(10, :evening)
   )
   pid += 1
   u2 += 1

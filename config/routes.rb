@@ -10,7 +10,7 @@ Rails.application.routes.draw do
       namespace :v1 do
           resources :posts, only: [:index, :show] do
             resources :restaurants, only: [:index]
-            resources :claims, only: [:create, :show, :destroy] # for buyer
+            resources :claims, only: [:create, :show, :destroy]
           end
       end
     end
