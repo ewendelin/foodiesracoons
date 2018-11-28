@@ -79,6 +79,13 @@ RailsAdmin.config do |config|
       field :last_name
     end
   end
+  #   config.model 'Post' do
+  #   edit do
+  #     group :post do
+  #     label "Promotions"
+  #   end
+  #   end
+  # end
 
 
   ### Popular gems integration
