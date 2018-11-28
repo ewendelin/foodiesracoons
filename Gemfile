@@ -18,6 +18,7 @@ gem 'uglifier'
 gem 'webpacker'
 
 gem 'faker'
+gem 'rest-client'
 gem 'has_secure_token'
 
 group :development do
