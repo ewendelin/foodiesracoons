@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_11_28_082640) do
+ActiveRecord::Schema.define(version: 2018_11_28_094420) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -32,7 +32,7 @@ ActiveRecord::Schema.define(version: 2018_11_28_082640) do
   create_table "claims", force: :cascade do |t|
     t.bigint "post_id"
     t.bigint "user_id"
-    t.string "status"
+    t.string "status", default: "received"
     t.datetime "claimed_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -44,7 +44,7 @@ ActiveRecord::Schema.define(version: 2018_11_28_082640) do
     t.bigint "restaurant_id"
     t.string "name"
     t.integer "original_price"
-    t.integer "discount"
+    t.float "discount"
     t.text "description"
     t.time "start_time"
     t.time "end_time"
@@ -65,12 +65,14 @@ ActiveRecord::Schema.define(version: 2018_11_28_082640) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "phone_number"
+    t.integer "rating", default: [], array: true
     t.index ["user_id"], name: "index_restaurants_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
+    t.string "access_token"
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
@@ -79,6 +81,7 @@ ActiveRecord::Schema.define(version: 2018_11_28_082640) do
     t.string "first_name"
     t.string "last_name"
     t.boolean "admin", default: false, null: false
+    t.string "openid"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
