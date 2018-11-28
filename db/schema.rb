@@ -12,9 +12,22 @@
 
 ActiveRecord::Schema.define(version: 2018_11_28_094420) do
 
-
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "active_admin_comments", force: :cascade do |t|
+    t.string "namespace"
+    t.text "body"
+    t.string "resource_type"
+    t.bigint "resource_id"
+    t.string "author_type"
+    t.bigint "author_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["author_type", "author_id"], name: "index_active_admin_comments_on_author_type_and_author_id"
+    t.index ["namespace"], name: "index_active_admin_comments_on_namespace"
+    t.index ["resource_type", "resource_id"], name: "index_active_admin_comments_on_resource_type_and_resource_id"
+  end
 
   create_table "claims", force: :cascade do |t|
     t.bigint "post_id"
@@ -33,13 +46,14 @@ ActiveRecord::Schema.define(version: 2018_11_28_094420) do
     t.integer "original_price"
     t.float "discount"
     t.text "description"
-    t.datetime "start_time"
-    t.datetime "end_time"
+    t.time "start_time"
+    t.time "end_time"
     t.datetime "start_day"
     t.datetime "end_day"
     t.string "image"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "everyday"
     t.index ["restaurant_id"], name: "index_posts_on_restaurant_id"
   end
 
@@ -66,6 +80,7 @@ ActiveRecord::Schema.define(version: 2018_11_28_094420) do
     t.datetime "updated_at", null: false
     t.string "first_name"
     t.string "last_name"
+    t.boolean "admin", default: false, null: false
     t.string "openid"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
