@@ -1,7 +1,9 @@
 class Api::V1::ClaimsController < Api::V1::BaseController
+  # acts_as_token_authentication_handler_for User, except: [ :create, :show ]
+
   def create
     @claim = Claim.new(claim_params)
-    @claim.user = @user
+    @claim.user = current_user
     if @claim.save
       render 'show'
     else
@@ -20,6 +22,6 @@ class Api::V1::ClaimsController < Api::V1::BaseController
   end
 
   def claim_params
-    params.require(:claim).permit(:post_id, :user_id, :status, :start_time, :end_time)
+    params.require(:claim).permit(:post_id, :user_id, :status, :claimed_at)
   end
 end
