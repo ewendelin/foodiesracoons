@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   
   
   post '/login', to: 'login#login'
-  
+ 
   devise_for :users
   devise_scope :user do
     # resources :restaurants do
@@ -14,10 +14,11 @@ Rails.application.routes.draw do
 
     namespace :api, defaults: { format: :json } do
       namespace :v1 do
-          resources :posts, only: [:index, :show] do
-            resources :restaurants, only: [:index]
-            resources :claims, only: [:create, :show, :destroy]
-          end
+        post '/login', to: 'users#login'
+        resources :posts, only: [:index, :show] do
+          resources :restaurants, only: [:index]
+          resources :claims, only: [:create, :show, :destroy]
+        end
       end
     end
   end
