@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  post '/login', to: 'login#login'
   devise_for :users
   devise_scope :user do
     resources :restaurants
