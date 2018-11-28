@@ -23,13 +23,19 @@ end
 # Create 5 restaurants
 # u for seller
 u = 1
+array = []
+t = Faker::Number.between(3, 10)
 5.times do
+  t.times do
+    array << Faker::Number.between(1, 5)
+  end
   Restaurant.create(
     name: Faker::FunnyName.two_word_name,
     address: Faker::Address.full_address,
     cuisine: Faker::Food.ingredient,
     user_id: u,
-    phone_number: Faker::PhoneNumber.phone_number
+    phone_number: Faker::PhoneNumber.phone_number,
+    rating: array
   )
   u += 1
 end
@@ -64,7 +70,8 @@ pid = 1
 5.times do
   Claim.create(
     post_id: pid,
-    user_id: u2
+    user_id: u2,
+    claimed_at: Faker::Time.backward(10, :evening)
   )
   pid += 1
   u2 += 1
