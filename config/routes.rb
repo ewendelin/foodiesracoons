@@ -1,16 +1,16 @@
 Rails.application.routes.draw do
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
   ActiveAdmin.routes(self)
-  
-  
+
+
   post '/login', to: 'login#login'
- 
+
   devise_for :users
   devise_scope :user do
-    # resources :restaurants do
-    #   resources :posts
-    #   resources :claims, only: [:index, :edit, :update] # for seller
-    # end
+    resources :restaurants do
+      resources :posts
+      resources :claims, only: [:index, :edit, :update] # for seller
+    end
 
     namespace :api, defaults: { format: :json } do
       namespace :v1 do
