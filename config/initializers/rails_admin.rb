@@ -77,6 +77,7 @@ RailsAdmin.config do |config|
     edit do
       field :first_name
       field :last_name
+      field :admin
     end
   end
   #   config.model 'Post' do
