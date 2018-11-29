@@ -57,9 +57,9 @@ end
 
 # Create 5 claims
 # u2 for buyer
-u2 = 6
+u2 = 1
 # pid for post id
-pid = 1
+pid = 71
 5.times do
   Claim.create(
     post_id: pid,
