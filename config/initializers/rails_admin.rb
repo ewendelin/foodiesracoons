@@ -50,6 +50,7 @@ RailsAdmin.config do |config|
   config.model 'Restaurant' do
     edit do
       field :name
+      field :user
       field :address
       field :cuisine
       field :phone_number
@@ -57,6 +58,7 @@ RailsAdmin.config do |config|
   end
   config.model 'Post' do
     edit do
+      field :restaurant
       field :name
       field :original_price
       field :discount
