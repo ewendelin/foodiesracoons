@@ -1,10 +1,10 @@
 Rails.application.routes.draw do
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
-  ActiveAdmin.routes(self)
-  
-  
+  # ActiveAdmin.routes(self)
+
+
   post '/login', to: 'login#login'
- 
+
   devise_for :users
   devise_scope :user do
     # resources :restaurants do
