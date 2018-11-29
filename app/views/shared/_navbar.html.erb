@@ -29,10 +29,13 @@
       </div>
     <% else %>
       <!-- Login link (when logged out) -->
-
+    <div class = "links">
       <%= link_to t(".sign_in", default: "Login"), new_user_session_path, class: "navbar-wagon-item navbar-wagon-link" %>
       <%= link_to t(".sign_in", default: "Language"), new_user_session_path, class: "navbar-wagon-item navbar-wagon-link" %>
+      <%= link_to t(".sign_in", default: "About us"), new_user_session_path, class: "navbar-wagon-item navbar-wagon-link" %>
+    </div>
     <% end %>
+
   </div>
 
   <!-- Dropdown list appearing on mobile only -->
