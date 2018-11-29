@@ -10,7 +10,7 @@ require 'faker'
 
 
 
-# Create 10 users (id:1-5->seller, id:6-10->buyer)
+# Create 10 users (id:1-5->seller, id:6-10->buyer)†
 10.times do
   User.create(
     email: Faker::Internet.email,
