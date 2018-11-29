@@ -2,7 +2,7 @@ class Api::V1::ClaimsController < Api::V1::BaseController
   skip_before_action :verify_authenticity_token
 
   def create
-    user = User.find_by(access_token: params[:access_token])
+    user = User.find(params[:user_id])
     # byebug
     @claim = user.claims.new({
       post_id: params[:post_id]
