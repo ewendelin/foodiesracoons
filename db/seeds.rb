@@ -1,16 +1,9 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
-#
-# Examples:
-#
-#   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
-#   Character.create(name: 'Luke', movie: movies.first)
-
 require 'faker'
 
 
 
-# Create 10 users (id:1-5->seller, id:6-10->buyer)†
+
+# Create 10 users (id:1-5->seller, id:6-10->buyer)†POst
 10.times do
   User.create(
     email: Faker::Internet.email,
@@ -42,8 +35,7 @@ end
 
 images = ['https://images.pexels.com/photos/6267/menu-restaurant-vintage-table.jpg?auto=compress&cs=tinysrgb&dpr=2&h=350', 'https://images.pexels.com/photos/262978/pexels-photo-262978.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=350', 'https://images.pexels.com/photos/696218/pexels-photo-696218.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=350', 'https://images.pexels.com/photos/941861/pexels-photo-941861.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=350']
 
-
-r = 1
+r = 10
 5.times do
   2.times do
     d = Faker::Number.between(0, 5)

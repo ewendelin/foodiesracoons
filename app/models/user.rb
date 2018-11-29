@@ -4,7 +4,7 @@ class User < ApplicationRecord
   has_many :restaurants
   has_many :claims
 
-  has_secure_token :access_token
+  # has_secure_token :access_token
 
 
   devise :database_authenticatable, :registerable,
