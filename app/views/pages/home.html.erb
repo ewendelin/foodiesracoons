@@ -11,7 +11,10 @@
         <h1>Welcome to<br />LiliXia | 粒粒侠</h1>
         <h3>LiliXia is an app that helps restaurants use their resources<br />wisely and promote discounts on their site.<br /> <br />Connect to foodies with LiliXia and reduce food-waste</h3>
         <hr />
+        <% if user_signed_in? %>
+         <% else %>
         <%= link_to t(".sign_in", default: "Login"), new_user_session_path, class: "btn btn-warning"%>
+         <% end %>
       </div>
     </div>
   </div>
