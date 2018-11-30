@@ -3,6 +3,7 @@ class Api::V1::PostsController < Api::V1::BaseController
     @posts = Post.where("end_day > ?", Time.now)
     if params[:keyword]
       @posts = Post.where("name = ?", params[:keyword])
+    end
   end
 
   def show
