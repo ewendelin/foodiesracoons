@@ -20,11 +20,6 @@ class LoginController < ApplicationController
     # p wechat_user
     # return
     @user = User.find_or_create_by(openid: wechat_user.fetch("openid"))
-    @user.email = "wechat@wechat.com"
-    @user.password = "wechattttt"
-    @user.save!
-
-    @user.regenerate_access_token
     render json: {
       access_token: @user.access_token,
       userId: @user.id

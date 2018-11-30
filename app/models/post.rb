@@ -12,5 +12,3 @@ class Post < ApplicationRecord
     ['yes', 'no']
   end
 end
-
-
