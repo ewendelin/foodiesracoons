@@ -1,7 +1,10 @@
 require 'faker'
 
 
-
+Claim.destroy_all
+Post.destroy_all
+Restaurant.destroy_all
+User.destroy_all
 
 # Create 10 users (id:1-5->seller, id:6-10->buyer)†POst
 10.times do
