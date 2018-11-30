@@ -3,20 +3,54 @@
 </head>
 <body>
 
+  <% if user_signed_in? %>
+      <div class="container">
+            <div id="content">
+              <h1>Welcome to<br />LiliXia | 粒粒侠</h1>
+              <h3>LiliXia is an app that helps restaurants use their resources<br />wisely and promote discounts on their site.<br /> <br />Connect to foodies with LiliXia and reduce food-waste</h3>
+              <hr />
+              <% if user_signed_in? %>
+              <% else %>
+              <%= link_to t(".sign_in", default: "Login"), new_user_session_path, class: "btn btn-warning"%>
+              <% end %>
+            </div>
+          </div>
+  </section>
 
-<div class="container">
-  <div class="row">
-    <div class="col-lg-12">
-      <div id="content">
-        <h1>Welcome to<br />LiliXia | 粒粒侠</h1>
-        <h3>LiliXia is an app that helps restaurants use their resources<br />wisely and promote discounts on their site.<br /> <br />Connect to foodies with LiliXia and reduce food-waste</h3>
-        <hr />
-        <%= link_to t(".sign_in", default: "Login"), new_user_session_path, class: "btn btn-warning"%>
+
+  <% else %>
+    <main class ="wrapper">
+    <section class="section parallax bg1">
+      <div class="container">
+
+            <div id="content">
+              <h1>Welcome to<br />LiliXia | 粒粒侠</h1>
+              <h3>LiliXia is an app that helps restaurants use their resources<br />wisely and promote discounts on their site.<br /> <br />Connect to foodies with LiliXia and reduce food-waste</h3>
+              <hr />
+              <% if user_signed_in? %>
+              <% else %>
+              <%= link_to t(".sign_in", default: "Login"), new_user_session_path, class: "btn btn-warning"%>
+              <% end %>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
-  </div>
-</div>
+  </section>
 
+  <section class="section static">
+    <h2> <img src="/assets/images/bowl.png" style="float:left;width:42px;height:42px;"> LiliXia is an app that helps restaurants to shed their excess inventory by allowing them to offer discounts on our platform of food that would otherwise be
+      disposed of.<br/><br/><br/><img src="../assets/images/post.png" style="float:left;width:42px;height:42px;">The app is designed to offer restaurants the flexibility to post their own promotions of whatever excess food they have in stock in addition to setting the price they wish for the product.<br/><br/><br/><img src="../assets/images/location.png" style="float:left;width:42px;height:42px;">Customers will
+    see the location of the restaurant and can claim their product by clicking on it</h2>
+  </section>
+
+  <section class="section parallax bg2">
+    <h2 class="address">Contact Information: 819 Wujian Lu, 3rd Floor, <br>Shanghai, China
+    <br>Phone Number: +86 18817373070
+    <br>email: info@lilixia.com</h2>
+  </section>
+</main>
+<% end %>
 
 <!-- SCRIPTS
 BOOTSTRAP ALWAYS NEEDS JQUERY RAN FIRST -->

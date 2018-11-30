@@ -135,8 +135,6 @@ GEM
     has_scope (0.7.2)
       actionpack (>= 4.1)
       activesupport (>= 4.1)
-    has_secure_token (1.0.0)
-      activerecord (>= 3.0)
     http-cookie (1.0.3)
       domain_name (~> 0.5)
     i18n (1.1.1)
@@ -337,7 +335,6 @@ DEPENDENCIES
   dotenv-rails
   faker
   font-awesome-sass (~> 5.0.9)
-  has_secure_token
   inherited_resources!
   jbuilder (~> 2.0)
   listen (~> 3.0.5)
