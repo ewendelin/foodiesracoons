@@ -24,8 +24,13 @@ font-size:20px;
   text-shadow: 0px 4px 3px rgba(0,0,0,0.4);
   text-shadow: 0px 8px 13px rgba(0,0,0,0.1);
   text-shadow: 0px 18px 23px rgba(0,0,0,0.1);
-
 }
+
+
+h2 {
+  color:white
+}
+
 #content{
   text-align:left;
   padding-top: 1%;
@@ -35,7 +40,7 @@ font-size:20px;
 hr{
 /* a horizontal rule can really help organize and 'clean up' landing pages... */
   visibility:hidden;
-  width: 400px;
+  width: 500px;
   border-top: 1px solid #f8f8f8;
   border-bottom: 1px solid rgba(0,0,0,0.2);
 }
@@ -54,3 +59,73 @@ hr{
   width: 100px;
   height: 30px;
 }
+
+//TRIAL WITH PARALAX
+
+.wrapper {
+  /* The height needs to be set to a fixed value for the effect to work.
+   * 100vh is the full height of the viewport. */
+  height: 100vh;
+  /* The scaling of the images would add a horizontal scrollbar, so disable x overflow. */
+  overflow-x: hidden;
+  /* Enable scrolling on the page. */
+  overflow-y: auto;
+  /* Set the perspective to 2px. This is essentailly the simulated distance from the viewport to transformed objects.*/
+  perspective: 2px;
+}
+
+.section {
+  /* Needed for children to be absolutely positioned relative to the parent. */
+  position: relative;
+  /* The height of the container. Must be set, but it doesn't really matter what the value is. */
+  height: 100vh;
+  /* For text formatting. */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  text-shadow: 0 0 5px #000;
+}
+
+.parallax::after {
+  /* Display and position the pseudo-element */
+  content: " ";
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  /* Move the pseudo-element back away from the camera,
+   * then scale it back up to fill the viewport.
+   * Because the pseudo-element is further away, it appears to move more slowly, like in real life. */
+  transform: translateZ(-1px) scale(1.5);
+  /* Force the background image to fill the whole element. */
+  background-size: 100%;
+  /* Keep the image from overlapping sibling elements. */
+  z-index: -1;
+}
+
+/* The styling for the static div. */
+.static {
+  // image: "images/bowl.png" ;
+  background: #FB683B;
+  color:white;
+  text-shadow: none;
+  padding: 30px;
+}
+
+/* Sets the actual background images to adorable kitties. This part is crucial. */
+.bg1::after {
+  background-image: linear-gradient(-225deg, rgba(0,81,128,0.1) 0%, rgba(0,16,61,0.4) 30%),
+  url(https://images.unsplash.com/photo-1505826759037-406b40feb4cd?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=389b86f2ff3c843ff691596ac59e6cc7&auto=format&fit=crop&w=1952&q=80);
+}
+
+.bg2::after {
+  background-image: linear-gradient(-225deg, rgba(0,81,128,0.1) 0%, rgba(0,16,61,0.4) 30%),
+  url(https://images.unsplash.com/photo-1515003197210-e0cd71810b5f?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=4fa061122a5ce899fcb5454dae8dbe99&auto=format&fit=crop&w=1950&q=80);
+}
+
+.address {
+  margin: left;
+}
+
