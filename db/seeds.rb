@@ -1,10 +1,7 @@
 require 'faker'
 
 
-Claim.destroy_all
-Post.destroy_all
-Restaurant.destroy_all
-User.destroy_all
+
 
 # Create 10 users (id:1-5->seller, id:6-10->buyer)†POst
 10.times do
@@ -37,7 +34,7 @@ t = Faker::Number.between(3, 10)
 end
 
 images = ['https://images.pexels.com/photos/6267/menu-restaurant-vintage-table.jpg?auto=compress&cs=tinysrgb&dpr=2&h=350', 'https://images.pexels.com/photos/262978/pexels-photo-262978.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=350', 'https://images.pexels.com/photos/696218/pexels-photo-696218.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=350', 'https://images.pexels.com/photos/941861/pexels-photo-941861.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=350']
-
+d = Faker::Number.between(0, 5)
 Post.create(
       restaurant_id: 1,
       name: "burger",
