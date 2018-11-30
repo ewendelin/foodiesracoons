@@ -8,7 +8,6 @@ RailsAdmin.config do |config|
       field :name
       field :address
       field :user
-      field :image
     end
   end
   config.model 'Claim' do
