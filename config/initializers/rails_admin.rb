@@ -23,13 +23,16 @@ RailsAdmin.config do |config|
     end
   end
   config.model 'Post' do
+    label 'Promotion'
     list do
       field :id
       field :restaurant
       field :name
       field :description
       field :original_price
-      field :discount
+      field :discount do
+        label 'discount %'
+      end
       field :everyday
       field :start_time
       field :end_time
@@ -58,13 +61,16 @@ RailsAdmin.config do |config|
     end
   end
   config.model 'Post' do
+    label 'Promotion'
     edit do
       field :restaurant
       field :name
       field :original_price
       field :discount
       field :description
-      field :discount
+      field :discount  do
+        label 'discount %'
+      end
       field :everyday
       field :start_time
       field :end_time
