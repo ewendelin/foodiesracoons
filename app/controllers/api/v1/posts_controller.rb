@@ -1,12 +1,15 @@
 class Api::V1::PostsController < Api::V1::BaseController
 
   def index
-    @posts = Post.where("end_day > ?", Time.now)
+    # @posts = Post.where("end_day > ?", Time.now)
+    @posts = Post.all
     if params[:keyword].present?
       sql_query = "name ILIKE :keyword"
       @posts = Post.where(sql_query, keyword: "%#{params[:keyword]}%")
     else
-      @posts = Post.where("end_day > ?", Time.now)
+      # @posts = Post.where("end_day > ?", Time.now)
+      @posts = Post.all
+    end
   end
 
   def create
