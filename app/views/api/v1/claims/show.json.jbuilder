@@ -12,4 +12,4 @@ json.post do
   json.end_time @post.end_time.strftime('%H:%M%p')
 end
 
-json.restaurant { json.extract! @restaurant, :id, :name, :address, :cuisine, :user_id, :longitude, :latitude }
+json.restaurant { json.extract! @restaurant, :id, :name, :address, :cuisine, :user_id, :image, :longitude, :latitude }

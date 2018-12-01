@@ -8,4 +8,4 @@ json.post do
 end
 
 # get restaurant
-json.restaurant { json.extract! @restaurant, :id, :name, :address, :cuisine, :user_id, :phone_number, :longitude, :latitude }
+json.restaurant { json.extract! @restaurant, :id, :name, :address, :cuisine, :user_id, :image, :phone_number, :longitude, :latitude }

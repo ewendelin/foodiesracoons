@@ -46,23 +46,19 @@ r = 1
   restaurant_id = Restaurant.last.id
 
   # create 10 posts
-  2.times do
-    d = Faker::Number.between(0, 5)
-    Post.create(
-      restaurant_id: restaurant_id,
-      name: post_name_a[r],
-      original_price: Faker::Number.between(30, 1000),
-      discount: Faker::Number.between(0.3, 0.9).round(1),
-      description: Faker::Food.description,
-      start_time: Faker::Time.forward(0, :afternoon),
-      end_time: Faker::Time.forward(0, :evening),
-      everyday: ['yes', 'no'].sample,
-      image: post_images_a[r]
-    )
-    r += 1
-  end
 
-  r -= 2
+  d = Faker::Number.between(0, 5)
+  Post.create(
+    restaurant_id: restaurant_id,
+    name: post_name_a[r],
+    original_price: Faker::Number.between(30, 1000),
+    discount: Faker::Number.between(0.3, 0.9).round(1),
+    description: Faker::Food.description,
+    start_time: Faker::Time.forward(0, :afternoon),
+    end_time: Faker::Time.forward(0, :evening),
+    everyday: ['yes', 'no'].sample,
+    image: post_images_a[r]
+  )
 
   # Create 5 claims
   post_id = Post.last.id
