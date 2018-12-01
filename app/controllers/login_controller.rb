@@ -19,6 +19,7 @@ class LoginController < ApplicationController
   def login
     # p wechat_user
     # return
+    # byebug
     @user = User.find_or_create_by(openid: wechat_user.fetch("openid"))
     render json: {
       access_token: @user.access_token,
