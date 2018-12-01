@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   # ActiveAdmin.routes(self)
 
 
-  post '/login', to: 'login#login'
+  post 'login', to: 'login#login'
 
   devise_for :users
   devise_scope :user do
@@ -15,7 +15,7 @@ Rails.application.routes.draw do
 
     namespace :api, defaults: { format: :json } do
       namespace :v1 do
-        post '/login', to: 'users#login'
+        # post '/login', to: 'login#login'
         resources :posts, only: [:index, :show] do
           resources :restaurants, only: [:index]
           resources :claims, only: [:create, :show, :destroy]

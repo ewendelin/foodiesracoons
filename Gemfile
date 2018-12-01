@@ -27,6 +27,7 @@ gem 'faker'
 gem 'rest-client'
 gem 'has_secure_token'
 
+
 group :development do
   gem 'web-console', '>= 3.3.0'
 end

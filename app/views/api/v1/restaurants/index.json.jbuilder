@@ -7,12 +7,10 @@ json.restaurant do
       json.restaurant post.restaurant.name
       json.name post.name
       json.original_price post.original_price
-      json.discount post.discount.round(2)
+      json.discount post.discount.round(1)
       json.description post.description
       json.start_time post.start_time.strftime('%H:%M:%S%p')
       json.end_time post.end_time.strftime('%H:%M:%S%p')
-      json.start_day post.start_day.strftime('%e %b %Y')
-      json.end_day post.end_day.strftime('%e %b %Y')
       json.image post.image
     end
   end
