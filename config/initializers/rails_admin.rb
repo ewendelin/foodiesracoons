@@ -29,9 +29,14 @@ RailsAdmin.config do |config|
       field :restaurant
       field :name
       field :description
-      field :original_price
+      field :original_price do
+    label 'Original Price RMB'
+      end
       field :discount do
         label 'discount %'
+      end
+      field :discount_price do
+    label 'Discounted Price RMB'
       end
       field :everyday
       field :start_time
@@ -132,9 +137,7 @@ RailsAdmin.config do |config|
     bulk_delete
     show
     edit
-    delete do
-      except ['Claim']
-    end
+    delete
     show_in_app
 
     ## With an audit adapter, you can add:

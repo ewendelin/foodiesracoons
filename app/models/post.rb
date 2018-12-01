@@ -7,14 +7,19 @@ class Post < ApplicationRecord
   validates :discount, numericality: { greater_than: 0, less_than_or_equal_to: 1 }
   validates :start_time, presence: true
   validates :end_time, presence: true
+  validate :end_must_be_after_start
 
   def everyday_enum
     ['yes', 'no']
   end
 
- #  def end_must_be_after_start
- #   if :start_time >= :end_time
- #     errors.add(:end_time, "must be after start time")
- #   end
- # end
+  def discount_price
+    return original_price*discount
+  end
+
+  def end_must_be_after_start
+    if start_time >= end_time
+      errors.add(:end_time, "end time must be greater than start time")
+    end
+  end
 end

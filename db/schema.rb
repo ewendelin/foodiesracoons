@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_11_30_042622) do
+ActiveRecord::Schema.define(version: 2018_12_01_055408) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -32,7 +32,7 @@ ActiveRecord::Schema.define(version: 2018_11_30_042622) do
   create_table "claims", force: :cascade do |t|
     t.bigint "post_id"
     t.bigint "user_id"
-    t.string "status", default: "received"
+    t.string "status"
     t.datetime "claimed_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -67,13 +67,14 @@ ActiveRecord::Schema.define(version: 2018_11_30_042622) do
     t.string "phone_number"
     t.integer "rating", default: [], array: true
     t.string "image"
+    t.decimal "longitude"
+    t.decimal "latitude"
     t.index ["user_id"], name: "index_restaurants_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
-    t.string "access_token"
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
