@@ -2,6 +2,8 @@ json.posts do
   json.array! @posts do |post|
     json.id post.id
     json.restaurant post.restaurant.name
+    json.longitude post.restaurant.longitude
+    json.latitude post.restaurant.latitude
     json.name post.name
     json.original_price post.original_price
     json.discount post.discount.round(1)
