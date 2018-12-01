@@ -1,6 +1,6 @@
 class Post < ApplicationRecord
   belongs_to :restaurant
-  has_many :claims
+  has_many :claims, dependent: :destroy
 
   validates :name, presence: true
   validates :original_price, numericality: true
