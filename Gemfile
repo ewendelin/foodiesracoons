@@ -26,6 +26,7 @@ gem 'webpacker'
 gem 'faker'
 gem 'rest-client'
 gem 'has_secure_token'
+gem 'geocoder'
 
 
 group :development do
