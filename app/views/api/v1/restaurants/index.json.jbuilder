@@ -1,5 +1,5 @@
 json.restaurant do
-  json.extract! @restaurant, :id, :name, :address, :cuisine, :user_id, :phone_number, :rating
+  json.extract! @restaurant, :id, :name, :address, :cuisine, :user_id, :phone_number, :rating, :image, :longitude, :latitude
 
   json.posts do
     json.array! @posts do |post|
