@@ -137,7 +137,9 @@ RailsAdmin.config do |config|
     bulk_delete
     show
     edit
-    delete
+    delete do
+      except ['Claim']
+    end
     show_in_app
 
     ## With an audit adapter, you can add:
