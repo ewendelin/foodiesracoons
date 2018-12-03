@@ -5,12 +5,11 @@ class User < ApplicationRecord
   has_many :claims, dependent: :destroy
   has_many :reviews
 
-  has_secure_token :access_token
+  # has_secure_token :access_token
 
-  validate do |user|
-    WechatValidator.new(user).validate
-  end
-
+  # validate do |user|
+  #   WechatValidator.new(user).validate
+  # end
 
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable
@@ -20,19 +19,22 @@ class User < ApplicationRecord
   end
 end
 
-class WechatValidator
-  def initialize(user)
-    @user = user
-  end
+# class WechatValidator
+#   def initialize(user)
+#     @user = user
+#   end
 
-  def validate()
-    if @user.openid.nil?
-      if @user.email.nil?
-        @user.errors[:base] << "Email can't be blank"
-      end
-      if @user.password.nil?
-        @user.errors[:base] << "Password can't be blank"
-      end
-    end
-  end
-end
+#   def validate
+#     if @user.openid.nil?
+#       if @user.email.nil?
+#         @user.errors[:base] << "Email can't be blank"
+#         return false
+#       end
+#       if @user.password.nil?
+#         @user.errors[:base] << "Password can't be blank"
+#         return false
+#       end
+#     end
+#     return true
+#   end
+# end
