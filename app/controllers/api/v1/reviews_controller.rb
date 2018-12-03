@@ -8,6 +8,7 @@ class Api::V1::ReviewsController < Api::V1::BaseController
   end
 
   def create
+
     user = User.find(params[:user_id])
     @review = user.reviews.new(review_params)
     @review.restaurant = Restaurant.find(params[:restaurant_id])
@@ -22,5 +23,6 @@ class Api::V1::ReviewsController < Api::V1::BaseController
 
   def review_params
     params.require(:review).permit(:rating, :content)
+
   end
 end

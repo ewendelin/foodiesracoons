@@ -8,6 +8,9 @@ class Post < ApplicationRecord
   validates :start_time, presence: true
   validates :end_time, presence: true
   validate :end_must_be_after_start
+  # validate :start_must_be_after_now
+
+  mount_uploader :image, PhotoUploader
 
   def everyday_enum
     ['yes', 'no']
@@ -19,7 +22,12 @@ class Post < ApplicationRecord
 
   def end_must_be_after_start
     if start_time >= end_time
-      errors.add(:end_time, "end time must be greater than start time")
+      errors.add(:end_time, "End time must be greater than start time")
     end
+  end
+
+  def show_post_records
+    @posts = Post.where(end_time.hours > Time.now.hours).select{ |post| (post.everyday == "no")}
+    # @posts = Post.all.select{|x| x.everyday == 'no'}
   end
 end

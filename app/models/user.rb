@@ -5,12 +5,11 @@ class User < ApplicationRecord
   has_many :claims, dependent: :destroy
   has_many :reviews
 
-  has_secure_token :access_token
+  # has_secure_token :access_token
 
-  validate do |user|
-    WechatValidator.new(user).validate
-  end
-
+  # validate do |user|
+  #   WechatValidator.new(user).validate
+  # end
 
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable
@@ -20,10 +19,11 @@ class User < ApplicationRecord
   end
 end
 
-class WechatValidator
-  def initialize(user)
-    @user = user
-  end
+# class WechatValidator
+#   def initialize(user)
+#     @user = user
+#   end
+
 
   def validate()
     if @user.openid.nil?
@@ -39,3 +39,4 @@ class WechatValidator
     return true
   end
 end
+
