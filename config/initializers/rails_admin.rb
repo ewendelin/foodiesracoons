@@ -22,6 +22,13 @@ RailsAdmin.config do |config|
       field :updated_at
     end
   end
+  config.model 'Review' do
+    list do
+      field :id
+      field :restaurant
+      field :rating
+    end
+  end
   config.model 'Post' do
     label 'Promotion'
     list do
@@ -92,6 +99,7 @@ RailsAdmin.config do |config|
       field :first_name
       field :last_name
       field :admin
+      field :email
     end
   end
   #   config.model 'Post' do
@@ -131,14 +139,16 @@ RailsAdmin.config do |config|
     dashboard                     # mandatory
     index                         # mandatory
     new do
-      except ['Claim']
+      except ['Claim', 'Review']
     end
     export
     bulk_delete
     show
-    edit
+    edit do
+      except ['Review']
+    end
     delete do
-      except ['Claim']
+      except ['Claim', 'Review']
     end
     show_in_app
 

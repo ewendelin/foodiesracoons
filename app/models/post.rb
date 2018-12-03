@@ -10,6 +10,8 @@ class Post < ApplicationRecord
   validate :end_must_be_after_start
   # validate :start_must_be_after_now
 
+  mount_uploader :image, PhotoUploader
+
   def everyday_enum
     ['yes', 'no']
   end
