@@ -24,9 +24,8 @@ class Post < ApplicationRecord
     end
   end
 
-  # def start_must_be_after_now
-  #   if start_time >= Time.now
-  #     errors.add(:start_time, "Start time must be after current time")
-  #   end
-  # end
+  def show_post_records
+    @posts = Post.where(end_time.hours > Time.now.hours).select{ |post| (post.everyday == "no")}
+    # @posts = Post.all.select{|x| x.everyday == 'no'}
+  end
 end
