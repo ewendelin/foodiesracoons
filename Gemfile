@@ -1,10 +1,13 @@
 source 'https://rubygems.org'
 ruby '2.4.4'
 
+gem 'carrierwave'
+gem "cancancan"
 gem "pundit"
 gem 'whenever', require: false
 gem 'remotipart', github: 'mshibuya/remotipart'
 gem 'rails_admin', '>= 1.0.0.rc'
+gem 'rails_admin_rollincode'
 
 gem 'activeadmin', github: 'activeadmin/activeadmin'
 gem 'inherited_resources', github: 'activeadmin/inherited_resources'
