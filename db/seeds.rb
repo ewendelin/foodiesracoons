@@ -1,5 +1,6 @@
 require 'faker'
 
+Review.destroy_all
 User.destroy_all
 
 # Create 10 users (1-5->seller, 6-10->buyer)
@@ -68,6 +69,15 @@ r = 1
     user_id: userid_a[r+5],
     claimed_at: Faker::Time.backward(10, :evening)
   )
+
+  5.times do
+    Review.create(
+      user_id: userid_a.sample,
+      restaurant_id: restaurant_id,
+      rating: Faker::Number.between(1, 5),
+      content: Faker::Food.description
+    )
+  end
 
   r += 1
 end

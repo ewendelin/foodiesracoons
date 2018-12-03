@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  get 'reviews/index'
+  get 'reviews/new'
+  get 'reviews/create'
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
   ActiveAdmin.routes(self)
   # ActiveAdmin.routes(self)
@@ -17,7 +20,9 @@ Rails.application.routes.draw do
       namespace :v1 do
         # post '/login', to: 'login#login'
         resources :posts, only: [:index, :show] do
-          resources :restaurants, only: [:index]
+          resources :restaurants, only: [:index] do
+            resources :reviews, only: [:index, :create]
+          end
           resources :claims, only: [:create, :show, :destroy]
         end
       end

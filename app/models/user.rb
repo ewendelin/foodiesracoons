@@ -3,6 +3,7 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   has_many :restaurants, dependent: :destroy
   has_many :claims, dependent: :destroy
+  has_many :reviews
 
   # has_secure_token :access_token
 
