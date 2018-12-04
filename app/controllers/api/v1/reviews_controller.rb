@@ -22,7 +22,6 @@ class Api::V1::ReviewsController < Api::V1::BaseController
   end
 
   def review_params
-    params.require(:review).permit(:user_id, :restaurant_id, :rating, :content, :avatar_url, :nickname)
-
+    params.require(:review).permit(:user_id, :restaurant_id, :rating, :content, :avatar_url, :nickname, :image)
   end
 end
