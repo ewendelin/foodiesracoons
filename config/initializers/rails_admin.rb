@@ -4,7 +4,7 @@ RailsAdmin.config do |config|
   config.current_user_method(&:current_user)
 
   config.authorize_with do |controller|
-    redirect_to main_app.root_path unless current_user && current_user.admin
+    redirect_to main_app.root_path unless current_user #&& current_user.admin
   end
 
   config.model 'Restaurant' do
@@ -43,10 +43,14 @@ RailsAdmin.config do |config|
     label 'Promotion'
     parent 'Restaurant'
     list do
+      filters [:restaurant]
       field :id
       field :restaurant
       field :name
       field :description
+      field :active_inactive  do
+        label 'Active/Inactive'
+      end
       field :original_price do
     label 'Original Price RMB'
       end
@@ -131,7 +135,7 @@ RailsAdmin.config do |config|
   # config.current_user_method(&:current_user)
 
   ## == Cancan ==
-  # config.authorize_with :cancan
+  config.authorize_with :cancan
 
   ## == Pundit ==
   # config.authorize_with :pundit
