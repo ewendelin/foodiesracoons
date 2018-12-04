@@ -9,6 +9,8 @@ gem 'remotipart', github: 'mshibuya/remotipart'
 gem 'rails_admin', '>= 1.0.0.rc'
 gem 'rails_admin_rollincode'
 
+gem 'cloudinary', '~> 1.9.1'
+
 gem 'activeadmin', github: 'activeadmin/activeadmin'
 gem 'inherited_resources', github: 'activeadmin/inherited_resources'
 gem 'bootsnap', require: false

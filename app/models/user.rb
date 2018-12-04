@@ -1,7 +1,9 @@
 class User < ApplicationRecord
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
+
   # enum kind: [:admin, :manager]
+
   has_many :restaurants, dependent: :destroy
   has_many :claims, dependent: :destroy
   has_many :reviews
