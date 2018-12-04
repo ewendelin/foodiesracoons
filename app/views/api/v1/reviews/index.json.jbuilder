@@ -3,7 +3,9 @@ json.array! @reviews do |review|
   json.rating review.rating
   json.content review.content
   json.created_at review.created_at
-  # json.first_name review.user.nickname
+  json.avatar_url review.avatar_url
+  json.nickname review.nickname
+  json.openid review.user.openid
 end
 
 

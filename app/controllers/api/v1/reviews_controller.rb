@@ -8,11 +8,11 @@ class Api::V1::ReviewsController < Api::V1::BaseController
   end
 
   def create
-
-    user = User.find(params[:user_id])
-    @review = user.reviews.new(review_params)
-    @review.restaurant = Restaurant.find(params[:restaurant_id])
-    @review.save
+    @review = Review.create(review_params)
+    # user = User.find(params[:user_id])
+    # @review = user.reviews.new(review_params)
+    # @review.restaurant = Restaurant.find(params[:restaurant_id])
+    # @review.save
 
     if @review.save
       render json: @review
@@ -22,7 +22,7 @@ class Api::V1::ReviewsController < Api::V1::BaseController
   end
 
   def review_params
-    params.require(:review).permit(:rating, :content)
+    params.require(:review).permit(:user_id, :restaurant_id, :rating, :content, :avatar_url, :nickname)
 
   end
 end
