@@ -1,12 +1,12 @@
 class User < ApplicationRecord
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
-  enum admin: [:admin, :manager]
+  # enum admin: [:admin, :manager]
   has_many :restaurants, dependent: :destroy
   has_many :claims, dependent: :destroy
   has_many :reviews
 
-  # has_secure_token :access_token
+  has_secure_token :access_token
 
   # validate do |user|
   #   WechatValidator.new(user).validate
