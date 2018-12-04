@@ -17,24 +17,25 @@ class User < ApplicationRecord
   def name
     "#{email}"
   end
-end
 
 # class WechatValidator
 #   def initialize(user)
 #     @user = user
 #   end
 
-#   def validate
-#     if @user.openid.nil?
-#       if @user.email.nil?
-#         @user.errors[:base] << "Email can't be blank"
-#         return false
-#       end
-#       if @user.password.nil?
-#         @user.errors[:base] << "Password can't be blank"
-#         return false
-#       end
-#     end
-#     return true
-#   end
-# end
+
+  def validate()
+    if @user.openid.nil?
+      if @user.email.nil?
+        @user.errors[:base] << "Email can't be blank"
+        return false
+      end
+      if @user.password.nil?
+        @user.errors[:base] << "Password can't be blank"
+        return false
+      end
+    end
+    return true
+  end
+end
+
