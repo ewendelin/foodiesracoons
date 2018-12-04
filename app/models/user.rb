@@ -17,7 +17,6 @@ class User < ApplicationRecord
   def name
     "#{email}"
   end
-end
 
 # class WechatValidator
 #   def initialize(user)
