@@ -3,6 +3,9 @@ RailsAdmin.config do |config|
   config.main_app_name = ["LiliXia | 粒粒侠"]
   config.current_user_method(&:current_user)
 
+
+  ## == Cancan ==
+    # config.authorize_with :cancan
   config.authorize_with do |controller|
     redirect_to main_app.root_path unless current_user #&& current_user.admin
   end
@@ -107,6 +110,7 @@ RailsAdmin.config do |config|
     config.model 'Claim' do
     edit do
       field :status
+
     end
   end
     config.model 'User' do
@@ -134,8 +138,6 @@ RailsAdmin.config do |config|
   # end
   # config.current_user_method(&:current_user)
 
-  ## == Cancan ==
-  config.authorize_with :cancan
 
   ## == Pundit ==
   # config.authorize_with :pundit
