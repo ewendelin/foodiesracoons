@@ -26,8 +26,14 @@ class Post < ApplicationRecord
     end
   end
 
-  def show_post_records
-    @posts = Post.where(end_time.hours > Time.now.hours).select{ |post| (post.everyday == "no")}
-    # @posts = Post.all.select{|x| x.everyday == 'no'}
+  def active_inactive
+    if everyday == "yes"
+      return "active"
+    elsif end_time.hour >= Time.now.hour && everyday == "no"
+      return "active"
+    else
+      return "inactive"
+    end
+    # @posts = Post.where(end_time.hours > Time.now.hours).select{ |post| (post.everyday == "no")}
   end
 end
