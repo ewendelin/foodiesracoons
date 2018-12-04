@@ -5,7 +5,7 @@ json.array! @reviews do |review|
   json.created_at review.created_at
   json.avatar_url review.avatar_url
   json.nickname review.nickname
-  json.openid review.user.openid
+  json.image review.image
 end
 
 
