@@ -23,6 +23,9 @@ RailsAdmin.config do |config|
       field :id
       field :restaurant
       field :post
+      field :active_inactive  do
+        label 'Active/Inactive'
+      end
       field :user
       field :status
       field :claimed_at
@@ -108,14 +111,13 @@ RailsAdmin.config do |config|
     config.model 'Claim' do
     edit do
       field :status
-
     end
   end
     config.model 'User' do
     edit do
+      field :kind
       field :first_name
       field :last_name
-      field :admin
       field :email
     end
   end

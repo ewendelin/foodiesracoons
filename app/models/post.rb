@@ -16,6 +16,10 @@ class Post < ApplicationRecord
     ['yes', 'no']
   end
 
+  def kind_enum
+    ['admin', 'manager']
+  end
+
   def discount_price
     return original_price*discount
   end
