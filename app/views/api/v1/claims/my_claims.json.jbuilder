@@ -7,5 +7,6 @@ json.my_claims do
     json.price (claim.post.original_price*claim.post.discount.round(1)).round(1)
     json.dish claim.post.name
     json.restaurant claim.post.restaurant.name
+    json.end_time claim.post.end_time.in_time_zone("Beijing").strftime('%B%e %H:%M')
   end
 end
