@@ -18,7 +18,7 @@ RailsAdmin.config do |config|
       field :id
       field :name
       field :address
-      field :user
+      field :cuisine
     end
   end
   config.model 'Claim' do
@@ -88,7 +88,6 @@ RailsAdmin.config do |config|
   config.model 'Restaurant' do
     edit do
       field :name
-      field :user
       field :address
       field :cuisine
       field :phone_number
@@ -171,7 +170,7 @@ RailsAdmin.config do |config|
       except ['Review']
     end
     delete do
-      except ['Claim', 'Review']
+      except
     end
     show_in_app
 
