@@ -3,9 +3,9 @@ json.my_claims do
     json.id claim.id
     json.user_id claim.user_id
     json.post_id claim.post_id
-    json.claimed_at claim.claimed_at
-    json.price (claim.post.original_price*claim.post.discount.round(1))
-    json.name claim.post.name
-    json.cuisine claim.post.restaurant.cuisine
+    json.claimed_at claim.claimed_at.in_time_zone("Beijing").strftime('%B%e %H:%M')
+    json.price (claim.post.original_price*claim.post.discount.round(1)).round(1)
+    json.dish claim.post.name
+    json.restaurant claim.post.restaurant.name
   end
 end
