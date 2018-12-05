@@ -28,4 +28,8 @@ class Api::V1::ClaimsController < Api::V1::BaseController
     @claim.destroy
     head :no_content
   end
+
+  def my_claims
+    @claims = Claim.where(user_id: params[:user_id])
+  end
 end
