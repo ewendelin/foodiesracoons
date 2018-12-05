@@ -1,5 +1,9 @@
 RailsAdmin.config do |config|
 
+  config.main_app_name = Proc.new {
+    ["Emberall Admin", "(#{Time.zone.now.to_s(:time)})"]
+  }
+
   config.main_app_name = ["LiliXia | 粒粒侠"]
   config.current_user_method(&:current_user)
 

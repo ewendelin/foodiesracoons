@@ -1,5 +1,5 @@
 json.posts do
-  json.array! @posts do |post|
+  json.array! @posts.reverse do |post|
     json.id post.id
     json.restaurant post.restaurant.name
     json.longitude post.restaurant.longitude
