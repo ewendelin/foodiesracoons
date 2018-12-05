@@ -9,4 +9,7 @@ class Restaurant < ApplicationRecord
   validates :name, presence: true
   validates :address, presence: true, uniqueness: true
   validates :cuisine, presence: true
+
+  mount_uploader :image, PhotoUploader
+
 end
