@@ -19,6 +19,8 @@ Rails.application.routes.draw do
           end
           resources :claims, only: [:create, :show, :destroy]
         end
+
+        get 'my_claims', to: 'claims#my_claims'
       end
     end
   end
