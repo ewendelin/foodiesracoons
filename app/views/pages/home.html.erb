@@ -21,52 +21,60 @@
   <% else %>
     <main class ="wrapper">
       <section class="section parallax bg1">
-        <div class="container">
-          <div id="content" class="flex">
-            <div>
-              <h1>Welcome to<br />LiliXia | 粒粒侠</h1>
-              <h3>LiliXia is an app that helps restaurants use their resources<br />wisely and promote discounts on their site.<br /> <br />Connect to foodies with LiliXia and reduce food-waste</h3>
-              <hr />
-              <% if user_signed_in? %>
-              <% else %>
-                <%= link_to t(".sign_in", default: "Login"), new_user_session_path, class: "btn btn-warning"%>
-              <% end %>
-            </div>
-            <div>
-              <%= image_tag("lilixia-qrcode") %>
+        <div class="page-container row welcome">
+
+          <div id="content" class="col-xs-12 col-sm-7">
+            <h1>Welcome to</h1>
+            <h1>LiliXia | 粒粒侠</h1>
+            <h3>LiliXia is an app that helps restaurants use their resources wisely and promote discounts on their site.
+            <h3>Connect to foodies with LiliXia and reduce food-waste</h3>
+            <hr />
+            <% if user_signed_in? %>
+            <% else %>
+              <%= link_to t(".sign_in", default: "Login"), new_user_session_path, class: "btn-lg btn-warning col-xs-10 col-sm-5 login-btn"%>
+            <% end %>
+          </div>
+          <div class="col-xs-12 col-sm-5 welcome-right">
+            <div class="qrcode-box">
+              <%= image_tag("lilixia-qrcode", {id: "qrcode"}) %>
+
             </div>
           </div>
         </div>
       </section>
 
       <section class="section static">
-        <div class="about-us">
-          <div class="about-info col-xs-12 col-sm-4">
-            <%= image_tag("bowl.png", {class: "about-img"}) %>
-            <!--       <img src="/assets/images/bowl.png" style="float:left;width:42px;height:42px;">  -->
-            <h2>
-              LiliXia is an app that helps restaurants to shed their excess inventory by allowing them to offer discounts on our platform of food that would otherwise be disposed of.
-            </h2>
-          </div>
-          <div class="about-info col-xs-12 col-sm-4">
-            <%= image_tag("post", {class: "about-img"}) %>
-            <h2>
-              The app is designed to offer restaurants the flexibility to post their own promotions of whatever excess food they have in stock in addition to setting the price they wish for the product.
-            </h2>
-          </div>
-          <div class="about-info col-xs-12 col-sm-4">
-            <%= image_tag("location", {class: "about-img"}) %>
-            <h2>
-              Customers will see the location of the restaurant and can claim their product by clicking on it.
-            </h2>
+        <div class="page-container">
+          <div class="about-us">
+            <div class="about-info col-xs-12 col-sm-4">
+              <%= image_tag("bowl.png", {class: "about-img"}) %>
+              <!--       <img src="/assets/images/bowl.png" style="float:left;width:42px;height:42px;">  -->
+              <h3>
+                LiliXia is an app that helps restaurants to shed their excess inventory by allowing them to offer discounts on our platform of food that would otherwise be disposed of.
+              </h3>
+            </div>
+            <div class="about-info col-xs-12 col-sm-4">
+              <%= image_tag("post", {class: "about-img"}) %>
+              <h3>
+                The app is designed to offer restaurants the flexibility to post their own promotions of whatever excess food they have in stock in addition to setting the price they wish for the product.
+              </h3>
+            </div>
+            <div class="about-info col-xs-12 col-sm-4">
+              <%= image_tag("location", {class: "about-img"}) %>
+              <h3>
+                Customers will see the location of the restaurant and can claim their product by clicking on it.
+              </h3>
+            </div>
           </div>
         </div>
       </section>
 
       <section class="section parallax bg2">
-        <h2 class="address">Contact Information: 819 Wujian Lu, 3rd Floor, <br>Shanghai, China
-        <br>Phone Number: +86 18817373070
-        <br>email: info@lilixia.com</h2>
+        <div class="page-container">
+          <h2 class="address">Contact Information: 819 Wujian Lu, 3rd Floor, Shanghai, China</h2>
+          <!-- <br>Phone Number: +86 18817373070 -->
+          <h2>email: info@lilixia.com</h2>
+        </div>
       </section>
     </main>
   <% end %>

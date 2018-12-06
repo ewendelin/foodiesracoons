@@ -12,11 +12,17 @@ body{
 }
 h1{
   // font-size: 6em;
+  margin: 0;
+  margin-top: 20px;
   font-weight: lighter;
   font-family: 'corbel', monospace, sans-serif;
   text-shadow: 0px 4px 3px rgba(0,0,0,0.4);
   text-shadow: 0px 8px 13px rgba(0,0,0,0.1);
   text-shadow: 0px 18px 23px rgba(0,0,0,0.1);
+}
+
+h1:first-child {
+  margin-top: 0px;
 }
 
 h2 {
@@ -37,10 +43,28 @@ font-size:20px;
 
 #content{
   text-align:left;
-  padding-top: 1%;
+  // padding-top: 1%;
   margin-bottom: 10px;
 
 }
+
+#qrcode {
+  height: 200px;
+  width: 200px;
+  padding: 0;
+  margin: 0;
+}
+
+.qrcode-box {
+  background-color: rgba(230,230,230,0.2);;
+  height: 250px;
+  width: 250px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 10px;
+}
+
 hr{
 /* a horizontal rule can really help organize and 'clean up' landing pages... */
   visibility:hidden;
@@ -52,8 +76,11 @@ hr{
   font-family: 'Space Mono', monospace;
 }
 
-.container{
-  width: 1500px;
+.page-container{
+//   // width: 1500px;
+  width: 85%;
+  // margin: 0;
+  margin: 0 auto;
 }
 
 .button-login{
@@ -115,6 +142,24 @@ hr{
   z-index: -1;
 }
 
+// 1. welcome wrapper
+.welcome {
+  height: 60%;
+}
+
+.welcome-right {
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.login-btn {
+  text-align: center;
+}
+// 1. end
+
+
 /* The styling for the static div. */
 .static {
   // image: "images/bowl.png" ;
@@ -152,4 +197,7 @@ hr{
 .address {
   margin: left;
 }
+
+
+
 
