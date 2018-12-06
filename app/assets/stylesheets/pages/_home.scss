@@ -1,3 +1,4 @@
+// Global styling
 html{
   height: 100%;
 }
@@ -10,13 +11,19 @@ body{
 
 }
 h1{
-  font-size: 6em;
+  // font-size: 6em;
   font-weight: lighter;
-  font-family: 'corbel', monospace;
+  font-family: 'corbel', monospace, sans-serif;
   text-shadow: 0px 4px 3px rgba(0,0,0,0.4);
   text-shadow: 0px 8px 13px rgba(0,0,0,0.1);
   text-shadow: 0px 18px 23px rgba(0,0,0,0.1);
 }
+
+h2 {
+  color:white;
+  font-size: 24px;
+}
+
 h3{
 font-size:20px;
   font-family: 'Raleway', sans-serif;
@@ -27,9 +34,6 @@ font-size:20px;
 }
 
 
-h2 {
-  color:white
-}
 
 #content{
   text-align:left;
@@ -87,6 +91,12 @@ hr{
   text-shadow: 0 0 5px #000;
 }
 
+.flex {
+  display: flex;
+}
+
+// End global styling
+
 .parallax::after {
   /* Display and position the pseudo-element */
   content: " ";
@@ -100,7 +110,7 @@ hr{
    * Because the pseudo-element is further away, it appears to move more slowly, like in real life. */
   transform: translateZ(-1px) scale(1.5);
   /* Force the background image to fill the whole element. */
-  background-size: 100%;
+  background-size: cover;
   /* Keep the image from overlapping sibling elements. */
   z-index: -1;
 }
@@ -113,6 +123,20 @@ hr{
   text-shadow: none;
   padding: 30px;
 }
+
+.about-info {
+  display: flex;
+  align-items: center;
+  flex: 1;
+  flex-direction: column;
+}
+
+.about-img {
+  height: 80px;
+  width: 80px;
+}
+
+// End styling for the static div
 
 /* Sets the actual background images to adorable kitties. This part is crucial. */
 .bg1::after {
