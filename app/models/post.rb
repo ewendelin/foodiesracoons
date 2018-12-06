@@ -40,4 +40,13 @@ class Post < ApplicationRecord
     end
     # @posts = Post.where(end_time.hours > Time.now.hours).select{ |post| (post.everyday == "no")}
   end
+
+  def start_time
+    s = super
+    s.in_time_zone('Beijing')
+  end
+  def end_time
+    s = super
+    s.in_time_zone('Beijing')
+  end
 end
