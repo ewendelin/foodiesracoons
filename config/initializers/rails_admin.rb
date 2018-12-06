@@ -47,9 +47,6 @@ RailsAdmin.config do |config|
       field :id
       field :restaurant
       field :post
-      field :active_inactive  do
-        label 'Active/Inactive'
-      end
       field :user
       field :status
       field :claimed_at
