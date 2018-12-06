@@ -21,7 +21,7 @@ class LoginController < ApplicationController
     # return
     # byebug
     u_params = { openid: wechat_user.fetch("openid")}
-    u_params[:email] = u_params[:openid]+ "@wx.com"
+    u_params[:email] = u_params[:openid].downcase+ "@wx.com"
 
     @user = User.find_by(u_params)
     if @user.blank?
