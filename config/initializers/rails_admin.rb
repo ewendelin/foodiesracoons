@@ -19,6 +19,7 @@ RailsAdmin.config do |config|
       field :name
       field :address
       field :cuisine
+      field :user
     end
   end
   config.model 'Claim' do
@@ -90,6 +91,7 @@ RailsAdmin.config do |config|
       field :name
       field :address
       field :cuisine
+      field :user
       field :phone_number
       field :image
     end
