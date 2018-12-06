@@ -16,6 +16,7 @@ class Claim < ApplicationRecord
   end
   def claimed_at
     s = super
+    return nil if s.nil?
     s.in_time_zone('Beijing')
   end
 end

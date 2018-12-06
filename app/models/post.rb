@@ -8,19 +8,12 @@ class Post < ApplicationRecord
   validates :start_time, presence: true
   validates :end_time, presence: true
   validate :end_must_be_after_start
-  before_create :clean_time_zone
-
-
-
+  before_save :clean_time_zone
   mount_uploader :image, PhotoUploader
 
   def clean_time_zone
-    if start_time.time_zone.blank?
-      start_time = start_time.in_time_zone('Beijing') - 8.hours
-    end
-    if end_time.time_zone.blank?
-      end_time = end_time.in_time_zone('Beijing') - 8.hours
-    end
+    self.start_time = self.start_time - 8.hours if self.start_time
+    self.end_time = self.end_time - 8.hours if self.end_time
   end
 
   def everyday_enum
@@ -54,10 +47,12 @@ class Post < ApplicationRecord
 
   def start_time
     s = super
+    return nil if s.nil?
     s.in_time_zone('Beijing')
   end
   def end_time
     s = super
+    return nil if s.nil?
     s.in_time_zone('Beijing')
   end
 end
