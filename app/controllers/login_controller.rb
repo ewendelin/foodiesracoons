@@ -22,9 +22,13 @@ class LoginController < ApplicationController
     # byebug
     u_params = { openid: wechat_user.fetch("openid")}
     u_params[:email] = u_params[:openid]+ "@wx.com"
-    u_params[:password] = '123123'
 
-    @user = User.find_or_create_by(u_params)
+    @user = User.find_by(u_params)
+    if @user.blank?
+      u_params[:password] = "123123"
+      User.create(u_params)
+    end
+
     render json: {
       access_token: @user.access_token,
       userId: @user.id
