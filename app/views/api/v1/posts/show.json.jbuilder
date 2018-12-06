@@ -3,8 +3,8 @@ json.post { json.extract! @post, :id, :restaurant_id, :name, :original_price, :d
 
 json.post do
   json.discount @post.discount.round(1)
-  json.start_time @post.start_time.strftime('%H:%M')
-  json.end_time @post.end_time.strftime('%H:%M')
+  json.start_time @post.start_time.in_time_zone("Beijing").strftime('%H:%M')
+  json.end_time @post.end_time.in_time_zone("Beijing").strftime('%H:%M')
 end
 
 # get restaurant
