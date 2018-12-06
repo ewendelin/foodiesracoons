@@ -1,4 +1,4 @@
-json.array! @reviews do |review|
+json.array! @reviews.reverse do |review|
   json.id review.id
   json.rating review.rating
   json.content review.content
