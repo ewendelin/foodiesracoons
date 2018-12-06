@@ -14,4 +14,8 @@ class Claim < ApplicationRecord
       return "inactive"
     end
   end
+  def claimed_at
+    s = super
+    s.in_time_zone('Beijing')
+  end
 end
