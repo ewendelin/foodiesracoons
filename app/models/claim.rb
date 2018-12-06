@@ -4,7 +4,7 @@ class Claim < ApplicationRecord
   has_one :restaurant, through: :post
 
   def status_enum
-    ['in progress','received', 'rejected', 'not-show', 'confirmed']
+    ['received', 'rejected', 'not-show', 'confirmed']
   end
 
   def active_inactive
@@ -13,5 +13,9 @@ class Claim < ApplicationRecord
     else
       return "inactive"
     end
+  end
+
+  def claimed_at
+    @claimed_at.in_time_zone('Beijing')
   end
 end

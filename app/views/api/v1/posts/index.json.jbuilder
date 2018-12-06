@@ -8,8 +8,8 @@ json.posts do
     json.original_price post.original_price
     json.discount post.discount.round(1)
     json.description post.description
-    json.start_time post.start_time.strftime('%H:%M:%S%p')
-    json.end_time post.end_time.strftime('%H:%M:%S%p')
+    json.start_time post.start_time.in_time_zone("Beijing").strftime('%H:%M:%S%p')
+    json.end_time post.end_time.in_time_zone("Beijing").strftime('%H:%M:%S%p')
     json.image post.image
   end
 end
