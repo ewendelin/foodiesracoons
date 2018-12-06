@@ -2,6 +2,7 @@
 .navbar-wagon {
   box-shadow: 0 1px 5px 0 rgba(0,0,0,0.07),0 1px 0 0 rgba(0,0,0,0.03);
   background: white;
+  // background: transparent;
   transition: all 0.3s ease;
   height: 70px;
   padding: 0px 30px;
@@ -33,7 +34,8 @@
 .navbar-wagon-item {
   cursor: pointer;
   padding: 0 20px;
-  font-size: 25px;
+  font-size: 20px;
+  color: rgb(30, 30, 30);
 }
 
 /* Navbar link */
@@ -76,7 +78,15 @@
   border-top: 1px solid #E6E6E6;
 }
 
-h2 {
-  font-size: 30px;
+#logo {
+  align-items: center;
+  width: 200px;
+  display: flex;
+  justify-content: space-between;
+}
+
+#app-name {
+  font-size: 20px;
   color:#FB683B;
+  margin: 0;
 }
